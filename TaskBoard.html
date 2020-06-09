@@ -1,0 +1,233 @@
+<html>
+    <head>
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+        <script src="Scripts/jquery-3.3.1.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style type="text/css">
+        
+        .table > thead > tr > th{
+            border-bottom:none;
+        }
+         .tdata{
+            height: 40px;
+            padding: 13px;
+         }
+        tr{
+            height: 10px;
+            font-size:14px;
+        }
+
+        .thead{
+            padding-left: 15px;
+            font-size:14px;
+        }
+
+        .pull-right{
+            margin:1%;
+            float:right!important;
+        }
+
+        .pull-left{
+            margin:1%;
+            float:left!important;
+        }
+
+
+            .title{
+                font-size: 25px;
+                margin-left:5px;
+            }
+
+            .leftmargin{
+                margin-left:15px;
+            }
+
+            .rightmargin{
+                margin-left:15px;
+            }
+
+            .table-row{               
+                margin:10px;
+                border:1px solid #eee;
+                box-shadow: 0 2px 3px #ccc;
+                padding: 16px;
+                border-radius: 4px;
+            }
+
+            .taskboard{
+                padding:2%;
+            }
+
+            .rights{
+           margin-right:70%
+            }
+
+            th ,td{
+                padding:15px;
+            }
+        </style>
+    </head>
+<body>
+    <!--Header section-->
+<form class="form-inline">
+    <div class="form-row">
+        <div class="pull-left">
+            <div class="form-group">
+                <div>
+            <b><label class="title">Task Board</label></b>
+                </div>             
+            </div>              
+            <div class="form-group">
+                <div class="btn-group leftmargin" role="group">
+                    <button id="btnAdd" type="button" class="btn btn-default" data-toggle="modal">
+                    List
+                    </button>
+                    <button type="button" id="btnEditPreferences" class="btn btn-default">
+                    Grid
+                    </button>
+                    <button type="button" id="btnDeletePreferences" class="btn btn-default">
+                    Calander
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="pull-right">
+            <div class="form-group ">
+                <div class="form-group dropdown">                         
+                    <select id="inputState" class="form-control">
+                        <option selected>Show : All</option>
+                        <option>In Progress</option>
+                        <option>Started</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default btn-sm" style="padding: 9px;">
+                    <span class="glyphicon glyphicon-sort"></span>
+                </button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default btn-sm" style="padding: 9px;">
+                    <span class="glyphicon glyphicon-filter"></span>
+                </button>
+            </div>
+    </div>
+  </div>
+</form>
+ <!--End Header section-->
+        <div class="taskboard">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="thead"><span>Task</span> </th>
+                        <th class="thead"><span>EndDate</span></th>
+                        <th class="thead"><span>Progress</span></th>
+                        <th class="thead"><span>Priority</span></th>
+                        <th class="thead"><span>Subscribers</span></th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row">
+                        <td colspan="5">
+                            <button type="button" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-plus"></span> Add New Task
+                              </button>
+                        </td>
+                    </tr>
+
+                    <tr><!--this tr helps for space between two rows--></tr>
+                    <tr class="table-row">
+                        <td class="tdata">T12345 - Install Security cameras in Building 1</td>
+                        <td class="tdata">Aug 2,2020</td>
+                        <td class="tdata">
+                            <div style="padding: 7px;">
+                            <span class="label label-primary" style="padding: 8px;">In Progress</span></div></td>
+                        <td class="tdata">
+                            <div style="margin-left: 15px;">
+                                <i class="fa fa-flag" style="font-size:16px;color:green"></i>
+                            </div>
+                        </td>                       
+                        <td class="tdata">
+                            <div>
+                                <i class="fa fa-user-circle" style="font-size:25px;color:red"></i>
+                                <i class="fa fa-user-circle" style="font-size:25px;color:blue"></i>
+
+                                <i class="fa fa-plus-circle" style="font-size:25px;color:green"></i>
+                            </div>                           
+                        </td>
+                    </tr>
+                   
+
+                    <!--sample data -->
+                    <tr></tr>
+                    <tr class="table-row">
+                        <td class="tdata">T12345 - Install Security cameras in Building 1</td>
+                        <td class="tdata">July 20, 2020</td>
+                        <td class="tdata">
+                        <div style="padding: 7px;">
+                            <span class="label label-success" style="padding: 8px;">Completed</span>
+                        </div></td>
+                        <td class="tdata">
+                            <div style="margin-left: 15px;">
+                                <i class="fa fa-flag" style="font-size:16px;color:blue"></i>
+                            </div>
+                        </td>                       
+                        <td class="tdata">
+                            <div>                              
+                                <i class="fa fa-user-circle" style="font-size:25px;color:blue"></i>
+                                <i class="fa fa-user-circle" style="font-size:25px;color:yellow"></i>
+                                <i class="fa fa-plus-circle" style="font-size:25px;color:green"></i>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr></tr>
+                    <tr class="table-row">
+                        <td class="tdata">T12345 - Install Security cameras in Building 1</td>
+                        <td class="tdata">June 4, 2020</td>
+                        <td class="tdata">
+                        <div style="padding: 7px;">
+                            <span class="label label-warning" style="padding: 8px;">In Review</span>
+                        </div></td>
+                        <td class="tdata">
+                            <div style="margin-left: 15px;">
+                                <i class="fa fa-flag" style="font-size:16px;color:red"></i>
+                            </div>
+                        </td>                       
+                        <td class="tdata">
+                            <div>
+                                <i class="fa fa-user-circle" style="font-size:25px;color:blue"></i>
+                                <i class="fa fa-user-circle" style="font-size:25px;color:orange"></i>
+                                <i class="fa fa-plus-circle" style="font-size:25px;color:green"></i>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr></tr>
+                    <tr class="table-row">
+                        <td class="tdata">T12345 - Install Security cameras in Building 1</td>
+                        <td class="tdata">June 4, 2020</td>
+                        <td class="tdata">
+                        <div style="padding: 7px;">
+                            <span class="label label-danger" style="padding: 8px;">Cancelled</span>
+                        </div></td>
+                        <td class="tdata">
+                            <div style="margin-left: 15px;">
+                                <i class="fa fa-flag" style="font-size:16px;color:#f0ad4e"></i>
+                            </div>
+                        </td>                       
+                        <td class="tdata">
+                            <div>                               
+                                <i class="fa fa-user-circle" style="font-size:25px;color:yellow"></i>
+                                <i class="fa fa-user-circle" style="font-size:25px;color:blue"></i>
+                                <i class="fa fa-plus-circle" style="font-size:25px;color:green"></i>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--sample data end-->
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

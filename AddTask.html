@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <style>
+        .mid {
+            margin-top: 5px;
+        }
+
+        .mid-row {
+            margin-top: 30px;
+        }
+
+        .btnsave {
+            margin: 15px;
+        }
+
+        .comment {
+            height: 45px;
+            background-color: #ddd;
+            margin-right: -11px;
+            margin-left: 9px;
+        }
+
+        .dropdown {
+            margin-top: 5px;
+        }
+
+        .sub-div {
+            border: 1px solid grey;
+            position: absolute;
+            width: 47%;
+            margin-bottom: 5%;
+            margin-left:20%;
+            margin-top:5%;
+        }
+
+        .commentsec {
+            background-color: white;
+            padding-right: 35px;
+            margin-left: 15px;
+        }
+
+        .user {
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--Form begin-->
+    <form>
+        <div class="sub-div">
+            <div class="form-row col-md-12">
+                <div class="form-group mid-row  col-md-2">
+                    <label id="lblTicketNumber">T12345</label>
+                </div>
+                <div class="form-group mid-row col-md-4">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <label id="lblName">Roy Howard</label>
+                </div>
+                <div class="form-group col-md-3 dropdown">
+                    <label for="inputState">Progress</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Select</option>
+                        <option>Not Started</option>
+                        <option>Started</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3 dropdown">
+                    <label for="inputState">Priority</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Select</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-12">
+                    <label for="inputAddress">Title</label>
+                    <input type="text" class="form-control mb-2" value="Install security cameras in floor 1 of building 1" readonly>
+                </div>
+            </div>
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-12">
+                    <label for="inputAddress">Description</label>
+                    <textarea rows="3" class="form-control" readonly>Install as per the floor plan in the attachement</textarea>
+                </div>
+            </div>
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-4">
+                    <label for="inputAddress">Start Date</label>
+                    <input class="form-control" name="date" placeholder="Start any time" type="text" readonly />
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label" for="date">Due Date</label>
+                    <input class="form-control" name="date" placeholder="Due any time" type="text" readonly />
+                </div>
+            </div>
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-8">
+                    <label for="inputAddress">Attachments</label>
+                    <div class="input-group-prepend">
+                        <input type="file" class="custom-file-input" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-2">
+                    <label for="inputAddress">Subscribers</label>
+                </div>
+                <div class="form-group col-md-10">
+                    <input class="form-control" type="text" readonly />
+                </div>
+            </div>
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-12">
+                    <label for="inputAddress">Depends On</label>
+                    <input type="text" class="form-control mb-2" value="Type your message here" readonly>
+                </div>
+            </div>
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-12">
+                    <label for="inputAddress">Blocks</label>
+                    <input type="text" class="form-control mb-2" value="Task T12345 - Install security cameras in building 1" readonly>
+                </div>
+            </div>
+            <div class="commentsec">
+                <div class="form-row col-md-12 comment">
+                    <div class="form-group">
+                        <span class="glyphicon glyphicon-th-list user"></span>
+                        <label class="mid">Activity</label>
+                        <input type="button" class="btn btn default mid pull-right" value="Hide Details" />
+                    </div>
+                </div>
+                <div class="form-row col-md-12 comment">
+                    <div class="form-group col-md-1">
+                        <span class="from-control glyphicon glyphicon-user mid user"></span>
+                    </div>
+                    <div class="form-row col-md-11">
+                        <input type="text" class="form-control mb-2" placeholder="Write a comment" />
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <button type="submit" class="btn btn-primary pull-right btnsave">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--end-->
+</body>
+</html>

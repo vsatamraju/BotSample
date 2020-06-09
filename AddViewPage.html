@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <style>
+        .btn, .btn-primary {
+            margin-top: 10px;
+        }
+       
+        .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
+                 color: #337ab7;
+                cursor: default;
+                background-color: white;
+        }
+
+        .nav-item >.nav-link{
+            color:grey;
+            
+        }
+
+        .nav-pills > li > a:focus, .nav-pills > li > a:hover {
+            text-decoration: none;
+            background-color:white;
+        }
+
+        .arrow {
+            margin-top: 12px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        form{
+          height:450px;
+        }
+
+        .addview {
+            position: absolute;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin:1%;
+            border-radius:5px;
+        }
+
+        .footer{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: transparent;
+            color: white;
+            text-align: right;
+            padding:10px;
+        }
+       
+    </style>
+    <script>
+        $(document).ready(function () {  
+            //disabling by default tabs functionality               
+           $('.nav-link').prop('disabled',true);            
+            $('.nav-link').css({'pointer-events':'none'});
+
+            $("form").on('submit', function (e) {
+                if ($('.nav-item.active').is(':last-child')) {    
+                    $('.nav-link').prop('disabled',false);    
+                    $('.nav-link').css({'pointer-events':'auto'});
+                    return true;
+                } else {                    
+                    $('.nav-item.active').next().next().find('.nav-link').tab('show');
+                    $('.nav-item.active').prev().prev().find('.nav-link').css({'pointer-events':'auto'});
+                    //making tabs active by removing disabled property
+                    $('.nav-item.active').prev().prev().find('.nav-link').prop('disabled',false);
+                   // $('.nav-link').css({'pointer-events':'auto'});
+                    $('.nav-item.active').prev().prev().find('.nav-link').css({'color': 'green'});
+                  return false;
+                }
+            });            
+        });        
+
+    </script>
+</head>
+<body>
+    <div class="addview">
+        <form style="form-horizontal">
+            <!--Tab section start-->
+            <div>
+                <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home" role="tab" data-toggle="tab">
+                            Gather User Details
+                        </a>
+                    </li>
+                    <li class="glyphicon glyphicon-chevron-right"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu1" role="tab" data-toggle="tab">
+                            Provide Options
+                        </a>
+                    </li>
+                    <li class="glyphicon glyphicon-chevron-right"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu2" role="tab" data-toggle="tab">
+                            Receive user confirmation
+                        </a>
+                    </li>
+                    <li class="glyphicon glyphicon-chevron-right"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu3" role="tab" data-toggle="tab">
+                            Send booking information
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--.tabs-section-nav-->
+            <div class="tab-content" id="myTabs">
+                <div role="tabpanel" class="tab-pane fade in active" id="home">
+                    <form id="form1">
+                        <div class="tab-content">
+                            <br />
+                            <textarea class="form-control" rows="1" id="comment" placeholder="Enter yout text here..."></textarea>
+                            <div class="text-right">
+                                <button type="button" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                                  
+                                </button>                               
+                            </div>
+                            <div class="chat">
+
+                            </div>
+                            <div class="footer">                                
+                                    <button type="submit" class="btn btn-primary a-btn-slide-text"><strong>Next</strong></button>                              
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--.tab-pane-->
+                <div role="tabpanel" class="tab-pane fade" id="menu1">
+                    <form id="form2">
+                        <div class="tab-content">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+                                </button>
+                                <button type="button" id="btnEditPreferences" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Edit
+                                </button>
+                                <button type="button" id="btnDeletePreferences" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-erase" aria-hidden="true"></span>Delete
+                                </button>
+                            </div>
+                            <br />
+                            <div class="form-group row">
+                                <div class="col-xs-6">
+                                    <div id="dyntxt">
+                                        <br />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer">
+                                <button type="submit" class="btn btn-primary a-btn-slide-text"><strong>Next</strong></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--.tab-pane-->
+                <div role="tabpanel" class="tab-pane fade" id="menu2">
+                    <form id="form3">
+                        <div class="tab-content">
+                            <br />
+                            <textarea class="form-control" rows="1" id="comment" placeholder="Enter yout text here..."></textarea>
+                            <div class="text-right">
+                                <button type="button" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                                    <strong>Send</strong>
+                                </button>
+                            </div>
+                            <div class="chat">
+                                
+                            </div>
+                            <div class="footer">
+                                <button type="submit" class="btn btn-primary a-btn-slide-text"><strong>Next</strong></button>
+                            </div>                            
+                        </div>
+                    </form>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="menu3">
+                    <!--Add post method in form to submit-->
+                    <form id="form4">
+                        <div class="tab-content">
+                            <br />
+                            <textarea class="form-control" rows="1" id="comment" placeholder="Enter yout text here..."></textarea>
+                            <br />
+                            <input type="file" class="custom-file-input">
+                            <div class="chat">
+                                
+                            </div>
+                            <div class="footer ">
+                            <button type="submit" class="btn btn-primary a-btn-slide-text pull-right"><strong>Submit</strong></button>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
